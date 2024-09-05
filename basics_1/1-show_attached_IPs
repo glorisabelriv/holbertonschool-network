@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# Shows attached IPs
-{ echo "127.0.0.1"; hostname -I | tr ' ' '\n' | sed '/^$/d'; }
+# This script displays all active IPv4 IPs on the machine
+
+ifconfig | grep 'inet ' | awk '{print $2}'
